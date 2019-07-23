@@ -13,11 +13,11 @@ after_success:
   - docker build -t mouadlousimi/multi-nginx ./nginx
   - docker build -t mouadlousimi/multi-server ./server
   - docker build -t mouadlousimi/multi-worker ./worker
-  
+
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD | docker login -u "$DOCKER_ID" --password-stdin"
 
-  # Take those image and push them to docker hub
+  # Take those image and  push them to docker hub
   - docker push mouadlousimi/multi-client
   - docker push mouadlousimi/multi-nginx
   - docker push mouadlousimi/multi-server
