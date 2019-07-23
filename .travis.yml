@@ -14,8 +14,7 @@ before_install:
 
 script:
   - docker run mouadlousimi/react-test npm test -- --coverage
-
-after_script:
+  
   - docker build -t mouadlousimi/multi-client ./client
   - docker build -t mouadlousimi/multi-nginx ./nginx
   - docker build -t mouadlousimi/multi-server ./server
