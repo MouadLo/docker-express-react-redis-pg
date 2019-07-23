@@ -2,11 +2,23 @@ sudo: required
 services: 
   - docker
 
+addons:
+  apt:
+    packages:
+      - docker-ce
+
 before_install:
   - docker build -t mouadlousimi/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run mouadlousimi/react-test npm test -- --coverage
+
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 
 after_success:
   - docker build -t mouadlousimi/multi-client ./client
