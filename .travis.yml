@@ -9,6 +9,8 @@ addons:
 
 bundler_args: --retry 5
 
+install: travis_wait 30
+
 before_install:
   - docker build -t mouadlousimi/react-test -f ./client/Dockerfile.dev ./client
 
